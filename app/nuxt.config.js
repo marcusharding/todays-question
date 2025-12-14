@@ -137,7 +137,7 @@ export default defineNuxtConfig({
         workbox: {
             runtimeCaching: [
                 {
-                    urlPattern: '^https://todays-question\\.net(/|/api/question)',
+                    urlPattern: '^https://todaysquestion\\.net(/|/api/question)',
                     handler: 'NetworkFirst',
                     options: {
                         cacheName: 'question-cache',
