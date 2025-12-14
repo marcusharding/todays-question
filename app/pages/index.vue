@@ -55,7 +55,9 @@ const questionOfTheDay = computed(() => {
 // METHODS
 const formatDate = (dateString) => {
     if (!dateString) return '';
-    const date = new Date(dateString);
+    // Parse as local date to avoid timezone shift (YYYY-MM-DD → midnight local, not UTC)
+    const [year, month, day] = dateString.split('-').map(Number);
+    const date = new Date(year, month - 1, day);
     return new Intl.DateTimeFormat('en-US', {
         year: 'numeric',
         month: 'long',
