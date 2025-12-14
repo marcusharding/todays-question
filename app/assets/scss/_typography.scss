@@ -1,0 +1,218 @@
+@use "sass:map";
+@use "@/assets/scss/variables" as variables;
+@import url('https://fonts.googleapis.com/css2?family=Fira+Mono&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:wght@400;800&display=swap');
+
+body {
+    width: 100%;
+
+    -webkit-font-smoothing: antialiased;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 500;
+    font-style: normal;
+}
+
+$typography: (
+    heading-1: (font-size: variables.rems(104),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.18,
+        letter-spacing: -1.04px,
+    ),
+
+    heading-2: (font-size: variables.rems(72),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.72px,
+    ),
+
+    heading-3: (font-size: variables.rems(60),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.6px,
+    ),
+    
+    heading-4: (
+        font-size: variables.rems(48),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.24px,
+    ),
+
+    heading-5: (
+        font-size: variables.rems(36),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.18px,
+    ),
+    
+    heading-6: (
+        font-size: variables.rems(30),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.15px,
+    ),
+
+    heading-7: (
+        font-size: variables.rems(24),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+        letter-spacing: -0.12px,
+    ),
+
+    heading-8: (
+        font-size: variables.rems(20),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+    ),
+
+    heading-9: (
+        font-size: variables.rems(18),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+    ),
+
+    heading-10: (
+        font-size: variables.rems(10),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1.2,
+    ),
+
+    body-l: (
+        font-size: variables.rems(18),
+        font-style: normal,
+        font-weight: 400,
+        line-height: 1.5,
+    ),
+
+    body-m: (
+        font-size: variables.rems(16),
+        font-style: normal,
+        font-weight: 400,
+        line-height: 1.5,
+    ),
+
+    body-s: (
+        font-size: variables.rems(14),
+        font-style: normal,
+        font-weight: 400,
+        line-height: 1.5,
+    ),
+
+    body-xs: (
+        font-size: variables.rems(12),
+        font-style: normal,
+        font-weight: 400,
+        line-height: 1.5,
+    ),
+
+    caption-l: (
+        font-size: variables.rems(18),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1.2,
+    ),
+
+    caption-m: (
+        font-size: variables.rems(16),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1.2,
+    ),
+
+    caption-s: (
+        font-size: variables.rems(14),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1.2,
+    ),
+
+    caption-xs: (
+        font-size: variables.rems(12),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1.2,
+    ),
+
+    links-xl: (
+        font-size: variables.rems(20),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1,
+    ),
+
+    links-l: (
+        font-size: variables.rems(18),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1,
+    ),
+
+    links-m: (
+        font-size: variables.rems(16),
+        font-style: normal,
+        font-weight: 500,
+        line-height: 1,
+    ),
+
+    links-s: (
+        font-size: variables.rems(14),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1,
+    ),
+
+    links-xs: (
+        font-size: variables.rems(12),
+        font-style: normal,
+        font-weight: 700,
+        line-height: 1,
+    ),
+);
+
+@mixin typography($type) {
+    @if map.has-key($typography, $type) {
+        $styles: map.get($typography, $type);
+        font-size: map.get($styles, font-size);
+        line-height: map.get($styles, line-height);
+        font-weight: map.get($styles, font-weight);
+    }
+
+    @else {
+        @warn "Undefined typography level: #{$type}";
+    }
+}
+
+// typography utility classes,
+// generates .heading-1, .body-xl, etc
+@each $type,
+$styles in $typography {
+    .#{$type} {
+        @include typography($type);
+    }
+}
+
+// provide default style for all headings
+$heading-map: (
+  h1: 'heading-1',
+  h2: 'heading-2',
+  h3: 'heading-3',
+  h4: 'heading-4',
+  h5: 'heading-5',
+  h6: 'heading-6',
+);
+
+@each $tag, $type in $heading-map {
+  #{$tag} {
+    @include typography($type);
+  }
+}

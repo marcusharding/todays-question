@@ -1,0 +1,21 @@
+@use 'sass:string';
+@use 'sass:map';
+
+$color: (
+    TrueBlack: #000000,
+    TrueWhite: #FFFFFF,
+    AlmostWhite: #F4F4F4,
+    AlmostBlack: #222222,
+    OffWhite: #E9E9E9
+);
+
+$font-base: 16;
+$site-max-width: 1500px;
+
+@function color($key, $alpha: 1) {
+    @return rgba(map.get($color, $key), $alpha);
+}
+
+@function rems($target: 16) {
+    @return string.unquote(calc($target / $font-base) + 'rem');
+}

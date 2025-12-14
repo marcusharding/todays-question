@@ -1,0 +1,50 @@
+{
+  "name": "todays-question",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "lint": "eslint -c ./eslint.config.mjs",
+    "lint:fix": "eslint -c ./eslint.config.mjs --fix",
+    "build": "nuxt build",
+    "dev": "npm run lint:fix && nuxt dev --host",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "prepare": "cd .. && husky app/.husky"
+  },
+  "dependencies": {
+    "@nuxt/eslint": "^0.7.3",
+    "@nuxt/image": "^1.9.0",
+    "@nuxtjs/robots": "^5.0.1",
+    "@nuxtjs/sanity": "^1.13.3",
+    "@nuxtjs/sitemap": "^7.0.0",
+    "@pinia/nuxt": "^0.9.0",
+    "@portabletext/vue": "^1.0.12",
+    "@sanity/client": "^6.24.1",
+    "@sanity/image-url": "^1.1.0",
+    "@vimeo/player": "^2.25.0",
+    "@vite-pwa/nuxt": "^1.0.0",
+    "bowser": "^2.11.0",
+    "eslint-plugin-prettier": "^5.2.1",
+    "gsap": "file:lib/gsap-premium.tgz",
+    "install": "^0.13.0",
+    "lodash.throttle": "^4.1.1",
+    "npm": "^11.0.0",
+    "nuxt": "^3.14.1592",
+    "nuxt-gtag": "^3.0.2",
+    "sass": "^1.83.0",
+    "vue": "latest",
+    "vue-router": "latest"
+  },
+  "devDependencies": {
+    "@types/vimeo__player": "^2.18.3",
+    "eslint": "^9.16.0",
+    "eslint-config-prettier": "^9.1.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.2.11",
+    "prettier": "^3.4.2"
+  },
+  "engines": {
+    "node": ">=20.0.0"
+  }
+}

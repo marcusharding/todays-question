@@ -1,0 +1,80 @@
+@use '@/assets/scss/mediaqueries' as *;
+@use '@/assets/scss/variables' as *;
+
+body {
+    width: 100%;
+
+    -webkit-font-smoothing: antialiased;
+}
+
+body,
+html {
+    overflow-x: hidden;
+    background: #F2EFED;
+}
+
+html {
+    overflow-y: scroll !important;
+}
+
+input,
+textarea,
+button,
+select,
+li,
+a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.site-content-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    width: 100%;
+    max-width: 900px;
+
+    @include laptop-up {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    @media (min-width: 1470px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.wide-content-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    padding-left: 24px;
+    padding-right: 24px;
+
+    width: 100%;
+    max-width: 1600px;
+
+    @include laptop-up {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+    @media (min-width: 1670px) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+.site-container {
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    padding-left: 30px;
+    padding-right: 30px;
+}
